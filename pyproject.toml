@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs", "hatch-requirements-txt"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+[tool.hatch.build.hooks.vcs]
+version-file = "embersight/_version.py"
+
+[project]
+name = "EmberSight"
+description = "Get insight on your FIRE journey 🔥"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "EUPL-1.2"
+license-files = { paths = ["LICENSE.txt"] }
+
+authors = [
+  { name = "Dries007", email = "admin@dries007.net" },
+]
+
+dynamic = ["version", "dependencies"]
+
+[project.urls]
+"Source code" = "https://github.com/EmberSight"
+"Website" = "https://EmberSight.com"
+"Discord" = "https://discord.gg/W8hgu6jFuK"
+
+[tool.isort]
+profile = "black"
+skip_gitignore = true
+py_version = 310
+line_length = 160
+atomic = true
+
+[tool.mypy]
+# --strict
+disallow_any_generics = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+implicit_reexport = false
+strict_equality = true
+# --strict end
+
+[tool.black]
+line-length = 160
+target-version = ['py310']

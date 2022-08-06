@@ -1,0 +1,11 @@
+# Do not just pip freeze > requirements.txt!
+# We want to only list manually installed dependencies, and use ~= instead of ==.
+# This makes dependency updates a lot easier to handle.
+
+# Actual project dependencies
+fastapi[all]~=0.79.0
+
+# Meta dependencies
+# The build-system dependencies are listed in pyproject.toml, they are not included here.
+pre-commit~=2.20.0
+isort~=5.10.1
