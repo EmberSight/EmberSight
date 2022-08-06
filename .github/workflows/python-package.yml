@@ -1,0 +1,22 @@
+# This workflow covers building & testing the repo.
+# pre-commit.ci handles linting etc.
+name: Python package
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.10
+    - name: Build package
+      run: |
+        python -m pip install --upgrade pip build
+        python3 -m build

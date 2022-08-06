@@ -1,6 +1,11 @@
 default_language_version:
   python: python3.10
 
+ci:
+  # pre-commit.ci does not allow network access, fair enough
+  # https://github.com/pre-commit-ci/issues/issues/133
+  skip: [can-build]
+
 repos:
   - repo: local
     hooks:
@@ -9,7 +14,7 @@ repos:
         description: Make sure the project can actually be build.
         entry: python -m build
         language: python
-        additional_dependencies: [ virtualenv, build ]
+        additional_dependencies: [ build ]
         always_run: true
         require_serial: true
         pass_filenames: false
